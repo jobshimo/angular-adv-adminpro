@@ -5,6 +5,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
 import { Grafica1Component } from './grafica1/grafica1.component';
+import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
@@ -43,14 +44,15 @@ const routes: Routes = [
         component: PerfilComponent,
         data: { title: 'Perfil de Usuario' },
       },
+
+      // MANTENIMIENTOS:
+      {
+        path: 'usuarios',
+        component: UsuariosComponent,
+        data: { title: 'Usuario de aplicación' },
+      },
     ],
   },
-
-  //{ path: 'path/:routeParam', component: MyComponent },
-  //{ path: 'staticPath', component: ... },
-  //{ path: '**', component: ... },
-  //{ path: 'oldPath', redirectTo: '/staticPath' },
-  //{ path: ..., component: ..., data: { message: 'Custom' }
 ];
 
 @NgModule({

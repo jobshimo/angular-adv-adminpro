@@ -60,6 +60,7 @@ export class PerfilComponent implements OnInit {
       this.imgTemp = reader.result;
     };
   }
+
   subirImagen() {
     this.fileUploadService
       .actualizarFoto(this.imagenSubir, 'usuarios', this.usuario.uid)
