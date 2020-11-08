@@ -1,9 +1,13 @@
+// ANGULAR
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+// SERVICES
 import { UsuarioService } from '../../services/usuario.service';
 
+// EXTERNOS
 import Swal from 'sweetalert2';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',

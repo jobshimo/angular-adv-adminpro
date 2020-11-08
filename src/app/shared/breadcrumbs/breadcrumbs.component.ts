@@ -1,5 +1,8 @@
+// ANGULAR
 import { Component, OnDestroy } from '@angular/core';
 import { ActivationEnd, Router } from '@angular/router';
+
+// RXJS
 import { filter, map } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 

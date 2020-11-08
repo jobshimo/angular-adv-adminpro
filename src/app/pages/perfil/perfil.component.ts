@@ -1,9 +1,15 @@
+// ANGULAR
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Usuario } from 'src/app/models/usuario.model';
+
+// SERVICES
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { FileUploadService } from 'src/app/services/file-upload.service';
 
+// MODELOS
+import { Usuario } from 'src/app/models/usuario.model';
+
+// EXTERNOS
 import Swal from 'sweetalert2';
 
 @Component({

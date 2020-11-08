@@ -1,11 +1,20 @@
+// ANGULAR
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Usuario } from 'src/app/models/usuario.model';
+
+// RXJS
+import { Subscription } from 'rxjs';
+import { delay } from 'rxjs/operators';
+
+// SERVICES
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { BusquedasService } from '../../../services/busquedas.service';
-import Swal from 'sweetalert2';
 import { ModalImagenService } from 'src/app/services/modal-imagen.service';
-import { delay } from 'rxjs/operators';
-import { Subscription } from 'rxjs';
+
+// MODELOS
+import { Usuario } from 'src/app/models/usuario.model';
+
+// EXTERNOS
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-usuarios',
@@ -64,7 +73,7 @@ export class UsuariosComponent implements OnInit, OnDestroy {
     }
     this.busquedasService
       .buscar('usuarios', termino)
-      .subscribe((resultados) => {
+      .subscribe((resultados: Usuario[]) => {
         this.usuarios = resultados;
       });
   }
@@ -95,13 +104,10 @@ export class UsuariosComponent implements OnInit, OnDestroy {
   }
 
   cambiarRole(usuario: Usuario) {
-    this.usuarioService.guardarUsuario(usuario).subscribe((resp) => {
-      console.log(resp);
-    });
+    this.usuarioService.guardarUsuario(usuario).subscribe((resp) => {});
   }
 
   abrirModal(usuario: Usuario) {
-    console.log(usuario);
     this.modalImagenServices.abrirModal('usuarios', usuario.uid, usuario.img);
   }
 

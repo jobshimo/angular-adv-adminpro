@@ -15,8 +15,4 @@ export class ProgressComponent {
   get getProgreso2() {
     return `${this.progreso2}%`;
   }
-
-  // cambioValorHijo(valor: number) {
-  //   console.log('Hey!!!!', valor);
-  // }
 }

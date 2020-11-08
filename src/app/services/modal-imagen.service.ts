@@ -1,6 +1,8 @@
+// ANGULAR
 import { EventEmitter, Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
 
+// ENTORNOS
+import { environment } from 'src/environments/environment';
 const base_url = environment.base_url;
 
 @Injectable({
@@ -32,7 +34,6 @@ export class ModalImagenService {
     } else {
       this.img = `${base_url}/upload/${tipo}/${img}`;
     }
-    // http://localhost:3000/api/upload/medicos/e526ecbc-26d4-4a6d-834c-125e9170cf3a.jpg
   }
 
   cerrarModal() {

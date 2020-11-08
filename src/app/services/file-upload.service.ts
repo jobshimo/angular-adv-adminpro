@@ -1,6 +1,8 @@
+// ANGULAR
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
 
+// ENTORNOS
+import { environment } from '../../environments/environment';
 const base_url = environment.base_url;
 
 @Injectable({
@@ -31,8 +33,6 @@ export class FileUploadService {
       if (data.ok) {
         return data.nombreArchivo;
       } else {
-        console.log(data.msg);
-
         return false;
       }
     } catch (error) {

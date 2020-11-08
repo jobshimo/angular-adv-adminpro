@@ -1,5 +1,7 @@
-import { templateJitUrl } from '@angular/compiler';
+// ANGULAR
 import { Component, OnInit } from '@angular/core';
+
+// SERVICES
 import { SettingsService } from '../../services/settings.service';
 
 @Component({

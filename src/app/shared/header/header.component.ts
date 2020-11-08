@@ -1,6 +1,11 @@
+// ANGULAR
 import { Component } from '@angular/core';
-import { Usuario } from 'src/app/models/usuario.model';
+
+// SERVICIOS
 import { UsuarioService } from 'src/app/services/usuario.service';
+
+// MODELOS
+import { Usuario } from 'src/app/models/usuario.model';
 
 @Component({
   selector: 'app-header',

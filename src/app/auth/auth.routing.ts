@@ -1,5 +1,8 @@
+// ANGULAR
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
+
+// COMPONENTS
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 

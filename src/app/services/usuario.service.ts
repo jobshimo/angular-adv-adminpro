@@ -1,16 +1,25 @@
+// ANGULAR
 import { Injectable, NgZone } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { RegisterForm } from '../interfaces/register-form.interfaces';
-import { LoginForm } from '../interfaces/login-form.interface';
-import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
+// RXJS
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-import { Router } from '@angular/router';
-import { Usuario } from '../models/usuario.model';
+
+// INTERFACE
+import { RegisterForm } from '../interfaces/register-form.interfaces';
+import { LoginForm } from '../interfaces/login-form.interface';
 import { CargarUsuarios } from '../interfaces/cargar-usuarios.interface';
 
+// MODELOS
+import { Usuario } from '../models/usuario.model';
+
+// ENTORNOS
+import { environment } from '../../environments/environment';
 const base_url = environment.base_url;
+
+// DECLARACIONES
 declare const gapi: any;
 
 @Injectable({
