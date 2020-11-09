@@ -20,7 +20,7 @@
                         <tbody>
                             <tr *ngFor="let usuario of usuarios" class="animated fadeIn slow">
                                 <td>
-                                    <img [src]=" usuario.img | imagen: 'usuario'" class="avatar">
+                                    <img [src]=" usuario.img | imagen: 'usuarios'" class="avatar">
 
                                 </td>
                                 <td>{{usuario.nombre }}</td>
@@ -55,7 +55,7 @@
                         <tbody>
                             <tr *ngFor="let medico of medicos" class="animated fadeIn slow">
                                 <td>
-                                    <img [src]=" medico.img | imagen: 'medico'" class="avatar">
+                                    <img [src]=" medico.img | imagen: 'medicos'" class="avatar">
                                 </td>
                                 <td>
                                     <a [routerLink]="['/dashboard/medico', medico._id ]">
@@ -94,7 +94,7 @@
                             <tr *ngFor="let hospital of hospitales" class="animated fadeIn slow">
                                 <td>
 
-                                    <img [src]=" hospital.img | imagen: 'hospital'" class="avatar">
+                                    <img [src]=" hospital.img | imagen: 'hospitales'" class="avatar">
                                 </td>
                                 <td>{{hospital.nombre}}</td>
 
