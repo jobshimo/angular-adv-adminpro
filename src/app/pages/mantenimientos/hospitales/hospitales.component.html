@@ -34,7 +34,7 @@
                     </div>
                     <div class="col">
                         <div class="text-right">
-                            <button (click)="abrirSwal()" class="btn btn-primary">
+                            <button (click)="abrirSwal()" class="btn btn-primary" *ngIf="this.usuarioService.role === 'ADMIN_ROLE'">
                             <i class="fa fa-hospital-o"></i>
                             Crear Hospital</button>
                         </div>
@@ -56,7 +56,8 @@
                                 </td>
                                 <td><input type="text" class="form-control" placeholder="Nombre de hospital" [(ngModel)]="hospital.nombre" /></td>
                                 <td class="text-nowrap text-center">
-                                    <a (click)="guardarCambios( hospital )" class="cursor" data-toggle="tooltip" data-original-title="Guardar cambios"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                    <a (click)="guardarCambios( hospital )" class="cursor" data-toggle="tooltip" data-original-title="Guardar cambios"> <i class="fa fa-save text-inverse m-r-10"></i> </a>
+                                    &nbsp;
                                     <a (click)="eliminarCambios( hospital )" class="cursor" data-toggle="tooltip" data-original-title="Borrar"> <i class="fa fa-close text-danger"></i> </a>
                                 </td>
                             </tr>

@@ -15,7 +15,7 @@
                         <img *ngIf="!imgTemp" [src]="modalImagenService.img" class="img-avatar">
                         <img *ngIf="imgTemp" [src]="imgTemp" class="img-avatar">
                     </div>
-                    <input type="file" (change)="cambiarImagen($event.target.files[0])">
+                    <input class="ellipsis" type="file" (change)="cambiarImagen($event.target.files[0])">
 
                 </div>
                 <div class="modal-footer">

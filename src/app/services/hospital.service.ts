@@ -16,6 +16,7 @@ const base_url = environment.base_url;
   providedIn: 'root',
 })
 export class HospitalService {
+  public hospitales: number;
   constructor(private http: HttpClient) {}
 
   get token(): string {
@@ -28,6 +29,12 @@ export class HospitalService {
         'x-token': this.token,
       },
     };
+  }
+
+  graficaHospital() {
+    this.cargarHospitales().subscribe((hospitales) => {
+      this.hospitales = hospitales.length;
+    });
   }
 
   cargarHospitales() {

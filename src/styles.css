@@ -10,6 +10,23 @@
     cursor: pointer;
 }
 
+.decorar:hover {
+    text-decoration: underline;
+    color: blue;
+}
+
+.userAdmin {
+    font-size: 23px;
+    color: blueviolet;
+    text-decoration: underline;
+}
+
+.ellipsis {
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: revert;
+}
+
 #google-btn {
     align-items: center;
     display: flex;

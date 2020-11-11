@@ -15,6 +15,7 @@ import { Medico } from 'src/app/models/medico.model';
 
 // EXTERNOS
 import Swal from 'sweetalert2';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-medicos',
@@ -29,7 +30,8 @@ export class MedicosComponent implements OnInit, OnDestroy {
   constructor(
     private medicoService: MedicoService,
     private modalImagenServices: ModalImagenService,
-    private busquedasService: BusquedasService
+    private busquedasService: BusquedasService,
+    public usuarioService: UsuarioService
   ) {}
 
   ngOnInit(): void {
@@ -57,7 +59,9 @@ export class MedicosComponent implements OnInit, OnDestroy {
   }
 
   abrirModal(medico: Medico) {
-    this.modalImagenServices.abrirModal('medicos', medico._id, medico.img);
+    if (this.usuarioService.role === 'ADMIN_ROLE') {
+      this.modalImagenServices.abrirModal('medicos', medico._id, medico.img);
+    }
   }
 
   borrarMedico(medico: Medico) {
@@ -69,14 +73,19 @@ export class MedicosComponent implements OnInit, OnDestroy {
       confirmButtonText: 'Sí, borrar',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.medicoService.borrarMedico(medico._id).subscribe((resp) => {
-          this.cargarMedicos();
-          Swal.fire(
-            'Médico borrado',
-            `${medico.nombre} fue eliminado correctamente`,
-            'success'
-          );
-        });
+        this.medicoService.borrarMedico(medico._id).subscribe(
+          (resp) => {
+            this.cargarMedicos();
+            Swal.fire(
+              'Médico borrado',
+              `${medico.nombre} fue eliminado correctamente`,
+              'success'
+            );
+          },
+          (err) => {
+            Swal.fire('Error', err.error.msg, 'error');
+          }
+        );
       }
     });
   }

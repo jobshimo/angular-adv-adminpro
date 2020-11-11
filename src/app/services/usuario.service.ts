@@ -28,6 +28,7 @@ declare const gapi: any;
 export class UsuarioService {
   public auth2: any;
   public usuario: Usuario;
+  public totalUsuarios: number;
 
   constructor(
     private http: HttpClient,
@@ -55,6 +56,11 @@ export class UsuarioService {
         'x-token': this.token,
       },
     };
+  }
+  graficaUsuarios() {
+    this.cargarUsuarios(0).subscribe(
+      ({ total }) => (this.totalUsuarios = total)
+    );
   }
 
   googleInit() {

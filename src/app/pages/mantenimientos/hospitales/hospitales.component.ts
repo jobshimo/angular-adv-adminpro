@@ -15,6 +15,7 @@ import { Hospital } from 'src/app/models/hospital.model';
 
 // EXTERNOS
 import Swal from 'sweetalert2';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-hospitales',
@@ -29,7 +30,8 @@ export class HospitalesComponent implements OnInit, OnDestroy {
   constructor(
     private hospitalServices: HospitalService,
     private modalImagenServices: ModalImagenService,
-    private busquedasService: BusquedasService
+    private busquedasService: BusquedasService,
+    public usuarioService: UsuarioService
   ) {}
 
   ngOnInit(): void {
@@ -53,14 +55,34 @@ export class HospitalesComponent implements OnInit, OnDestroy {
   guardarCambios(hospital: Hospital) {
     this.hospitalServices
       .actualizarHospitales(hospital._id, hospital.nombre)
-      .subscribe((resp) => {
-        Swal.fire('Actualizado', hospital.nombre, 'success');
-      });
+      .subscribe(
+        (resp) => {
+          Swal.fire('Actualizado', hospital.nombre, 'success');
+        },
+        (err) => {
+          Swal.fire('Error', err.error.msg, 'error');
+        }
+      );
   }
   eliminarCambios(hospital: Hospital) {
-    this.hospitalServices.borrarHospitales(hospital._id).subscribe((resp) => {
-      this.cargarHospital();
-      Swal.fire('Borrado', hospital.nombre, 'success');
+    Swal.fire({
+      title: '¿Borrar hospital?',
+      text: `Esta apunto de borrar el ${hospital.nombre}`,
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, borrar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.hospitalServices.borrarHospitales(hospital._id).subscribe(
+          (resp) => {
+            this.cargarHospital();
+            Swal.fire('Borrado', hospital.nombre, 'success');
+          },
+          (err) => {
+            Swal.fire('Error', err.error.msg, 'error');
+          }
+        );
+      }
     });
   }
   async abrirSwal() {
@@ -80,11 +102,13 @@ export class HospitalesComponent implements OnInit, OnDestroy {
   }
 
   abrirModal(hospital: Hospital) {
-    this.modalImagenServices.abrirModal(
-      'hospitales',
-      hospital._id,
-      hospital.img
-    );
+    if (this.usuarioService.role === 'ADMIN_ROLE') {
+      this.modalImagenServices.abrirModal(
+        'hospitales',
+        hospital._id,
+        hospital.img
+      );
+    }
   }
 
   buscar(termino: string) {

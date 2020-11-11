@@ -40,7 +40,7 @@
                     <img *ngIf="!imgTemp" [src]="usuario.imagenUrl" class="img-avatar">
                     <img *ngIf="imgTemp" [src]="imgTemp" class="img-avatar">
                 </div>
-                <input type="file" (change)="cambiarImagen($event.target.files[0])">
+                <input class="ellipsis" type="file" (change)="cambiarImagen($event.target.files[0])">
                 <br>
                 <br>
                 <button type="button" [disabled]="!imagenSubir" (click)="subirImagen()" class="btn btn-success btn-block waves-effect waves-light m-r-10">

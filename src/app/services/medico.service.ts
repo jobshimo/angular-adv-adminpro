@@ -16,6 +16,8 @@ const base_url = environment.base_url;
   providedIn: 'root',
 })
 export class MedicoService {
+  public medicos: number;
+
   constructor(private http: HttpClient) {}
 
   get token(): string {
@@ -28,6 +30,11 @@ export class MedicoService {
         'x-token': this.token,
       },
     };
+  }
+  graficaMedicos() {
+    this.cargarMedicos().subscribe((medicos) => {
+      this.medicos = medicos.length;
+    });
   }
 
   cargarMedicos() {

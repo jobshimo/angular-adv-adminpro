@@ -1,81 +1,50 @@
-<!-- ============================================================== -->
-<!-- Topbar header - style you can find in pages.scss -->
-<!-- ============================================================== -->
 <header class="topbar">
     <nav class="navbar top-navbar navbar-expand-md navbar-light">
-        <!-- ============================================================== -->
-        <!-- Logo -->
-        <!-- ============================================================== -->
+
         <div class="navbar-header">
             <a class="navbar-brand" href="index.html">
-                <!-- Logo icon --><b>
-          <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-          <!-- Dark Logo icon -->
-          <img
-            src="./assets/images/LOGOTIPO.png"
-            alt="homepage"
-            class="dark-logo logoheader"
-          />
-          <!-- Light Logo icon -->
-          <img
-            src="./assets/images/LOGOTIPO BLANCO.png"
-            alt="homepage"
-            class="light-logo logoheader"
-          />
+                <b>
+
+          <img src="./assets/images/LOGOTIPO.png" alt="homepage" class="dark-logo logoheader" />
+
+          <img src="./assets/images/LOGOTIPO BLANCO.png" alt="homepage" class="light-logo logoheader" />
         </b>
-                <!--End Logo icon -->
-                <!-- Logo text --><span>
-          <!-- dark Logo text -->
-          <img
-            src="./assets/images/logo-text.png"
-            alt="homepage"
-            class="dark-logo" />
-          <!-- Light Logo text -->
-          <img
-            src="./assets/images/logo-light-text.png"
-            class="light-logo"
-            alt="homepage"
-        /></span>
+                <span>
+
+          <img src="./assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+
+          <img src="./assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span>
             </a>
         </div>
-        <!-- ============================================================== -->
-        <!-- End Logo -->
-        <!-- ============================================================== -->
+
         <div class="navbar-collapse">
-            <!-- ============================================================== -->
-            <!-- toggle and nav items -->
-            <!-- ============================================================== -->
+
             <ul class="navbar-nav mr-auto">
-                <!-- This is  -->
+
                 <li class="nav-item">
-                    <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i
-          ></a>
+                    <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i
+              class="ti-menu"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link sidebartoggler hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i
-          ></a>
+                    <a class="nav-link sidebartoggler hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i
+              class="ti-menu"></i></a>
                 </li>
                 <li class="nav-item hidden-sm-down"></li>
             </ul>
-            <!-- ============================================================== -->
-            <!-- User profile and search -->
-            <!-- ============================================================== -->
+
             <ul class="navbar-nav my-md-0">
-                <!-- ============================================================== -->
-                <!-- Search -->
-                <!-- ============================================================== -->
+
                 <li class="nav-item hidden-xs-down search-box">
-                    <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i
-          ></a>
+                    <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i
+              class="ti-search"></i></a>
                     <form class="app-search" (ngSubmit)="buscar( txtTermino.value )">
                         <input type="text" class="form-control" placeholder="Buscar médico, hospital o usuario" #txtTermino />
                         <a class="srh-btn"><i class="ti-close"></i></a>
                     </form>
                 </li>
 
-                <!-- ============================================================== -->
-                <!-- Profile -->
-                <!-- ============================================================== -->
+
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img [src]="usuario.imagenUrl" alt="user" class="profile-pic" /></a>
                     <div class="dropdown-menu dropdown-menu-right animated flipInY fast">
@@ -86,38 +55,32 @@
                                         <img [src]="usuario.imagenUrl" alt="user" />
                                     </div>
                                     <div class="u-text">
+                                        &nbsp;
                                         <h4>{{usuario.nombre}}</h4>
                                         <p class="text-muted">
                                             {{usuario.email |slice:0:20}}{{(usuario.email.length >20) ? '...': ''}}
                                         </p>
-                                        <a href="pages-profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a
-                    >
-                  </div>
-                </div>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li>
-                <a routerLink="./perfil"><i class="ti-user"></i> My Profile</a>
+
+                                    </div>
+                                </div>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a routerLink="./perfil"><i class="ti-user"></i> Mi Perfil</a>
                             </li>
 
                             <li role="separator" class="divider"></li>
                             <li>
-                                <a routerLink="account-settings"><i class="ti-settings"></i> Account Setting</a
-                >
-              </li>
-              <li role="separator" class="divider"></li>
-              <li>
-                <a (click)="logout()" class="cursor"
-                  ><i class="fa fa-power-off"></i> Logout</a
-                >
-              </li>
+                                <a routerLink="account-settings"><i class="ti-settings"></i> Account Setting</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a (click)="logout()" class="cursor"><i class="fa fa-power-off"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </nav>
+        </div>
+    </nav>
 </header>
-<!-- ============================================================== -->
-<!-- End Topbar header -->
-<!-- ============================================================== -->
